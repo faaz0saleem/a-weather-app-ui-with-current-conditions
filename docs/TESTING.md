@@ -123,3 +123,14 @@ Automated: `npm test` (95 unit tests, incl. the guarantee engine and "riders nev
 7. **Riders**: add a rider (phone + temporary password), deactivate one.
 8. **Reviews**: arrivals made outside the 75 m geofence with a reason; mark them reviewed.
 9. **Simulation → Clean up** when done (deletes test orders, stops the sim, real time).
+
+## Milestone 7 — polish, PWA, accessibility
+
+1. **Install:** on Android Chrome open the site → ⋮ → *Install app* (or **Profile → Install the app**).
+   On iPhone: Safari → Share → *Add to Home Screen*. It opens full-screen with the WaqtPe icon.
+2. **Offline:** turn on airplane mode → a calm "You're offline" banner appears; navigating shows the
+   offline page instead of a browser error. Live data (clocks, orders) is never served from cache.
+3. **Dark mode:** Profile → Appearance → Dark (or follow your phone's setting). No flash on reload.
+4. **Loading:** pages show skeletons, not spinners. A wrong URL shows a friendly 404.
+5. **Accessibility:** every screen passes an automated WCAG 2 AA scan (axe) in light and dark; the app
+   works with the keyboard, has a *Skip to content* link and respects "reduce motion".

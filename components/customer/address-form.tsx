@@ -171,7 +171,7 @@ export function AddressForm({ zones, next, initial }: { zones: Polygon[]; next: 
             }
           />
           {!inZone && (
-            <p className="mt-2 flex items-center gap-2 rounded-2xl bg-chili/10 px-3 py-2 text-sm font-semibold text-chili">
+            <p className="mt-2 flex items-center gap-2 rounded-2xl bg-chili/10 px-3 py-2 text-sm font-semibold text-chili-deep">
               <TriangleAlert className="size-4" /> {t.address.outsideZone}
             </p>
           )}

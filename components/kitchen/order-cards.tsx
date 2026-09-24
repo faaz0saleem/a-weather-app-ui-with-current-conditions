@@ -19,7 +19,7 @@ function Items({ order, big = false }: { order: KitchenOrder; big?: boolean }) {
     <ul className={cn("space-y-1.5", big && "text-lg")}>
       {order.items.map((i, idx) => (
         <li key={idx} className="flex gap-2">
-          <span className="tabular min-w-8 font-display font-extrabold text-brand">{i.qty}×</span>
+          <span className="tabular min-w-8 font-display font-extrabold text-brand-deep">{i.qty}×</span>
           <span className="min-w-0">
             <span className="font-bold">{i.name}</span>
             {i.options.length > 0 && <span className="block text-sm text-ink-soft">{i.options.join(" · ")}</span>}
@@ -68,7 +68,7 @@ export function NewOrderCard({ order, now, query, onDone }: { order: KitchenOrde
       </div>
       <header className="mb-3 flex items-start justify-between gap-2 pt-1">
         <div>
-          <p className="text-xs font-bold tracking-wider text-brand uppercase">{t.kitchen.newOrder}</p>
+          <p className="text-xs font-bold tracking-wider text-brand-deep uppercase">{t.kitchen.newOrder}</p>
           <p className="font-display text-2xl font-extrabold">{order.code}</p>
           <p className="text-sm text-ink-soft">
             {order.customerFirstName} · {formatTime(order.placedAt)} · {formatPKR(order.totalPkr)}
@@ -103,7 +103,7 @@ export function NewOrderCard({ order, now, query, onDone }: { order: KitchenOrde
         </div>
       </div>
       <div className="mt-3 flex gap-2">
-        <Button variant="ghost" className="text-chili hover:bg-chili/10" onClick={() => setRejectOpen(true)} disabled={busy}>
+        <Button variant="ghost" className="text-chili-deep hover:bg-chili/10" onClick={() => setRejectOpen(true)} disabled={busy}>
           <X /> {t.kitchen.reject}
         </Button>
         <Button size="lg" variant="success" className="flex-1" onClick={accept} disabled={busy}>
@@ -300,7 +300,7 @@ export function ReadyCard({ order }: { order: KitchenOrder }) {
         <p className="font-display text-lg font-extrabold">{order.code}</p>
         <p className="text-sm text-ink-soft">{order.items.reduce((n, i) => n + i.qty, 0)} items</p>
         <p className="mt-1 flex items-center gap-1.5 text-sm font-semibold">
-          <Bike className="size-4 text-mint" />
+          <Bike className="size-4 text-mint-deep" />
           {picked ? t.kitchen.riderHere : order.rider ? t.kitchen.riderComing(order.rider.name) : t.race.riderPending}
         </p>
       </div>

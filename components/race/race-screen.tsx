@@ -227,7 +227,7 @@ export function RaceScreen({
         title={t.race.title(order.code)}
         back="/"
         right={
-          <a href={`tel:${brand.supportPhone.replace(/\s/g, "")}`} className="rounded-full px-3 py-2 text-sm font-bold text-brand">
+          <a href={`tel:${brand.supportPhone.replace(/\s/g, "")}`} className="rounded-full px-3 py-2 text-sm font-bold text-brand-deep">
             {t.race.helpShort}
           </a>
         }
@@ -352,7 +352,7 @@ export function RaceScreen({
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={order.rider.avatarUrl} alt="" className="size-14 rounded-2xl object-cover" />
               ) : (
-                <span className="grid size-14 place-items-center rounded-2xl bg-mint/15 font-display text-xl font-extrabold text-mint">
+                <span className="grid size-14 place-items-center rounded-2xl bg-mint/15 font-display text-xl font-extrabold text-mint-deep">
                   {order.rider.name.slice(0, 1)}
                 </span>
               )}
@@ -415,14 +415,14 @@ export function RaceScreen({
             <span>{formatPKR(order.deliveryFeePkr)}</span>
           </div>
           {isFree && (
-            <div className="flex justify-between font-bold text-[color-mix(in_oklab,var(--wp-gold)_65%,var(--wp-ink))]">
+            <div className="flex justify-between font-bold text-gold-deep">
               <span>{t.race.freeFlip}</span>
               <span>−{formatPKR(order.freeAmountPkr || Math.min(order.totalPkr, order.freeCapPkr))}</span>
             </div>
           )}
           <div className="flex items-center justify-between pt-1 font-display text-xl font-bold">
             <span>{t.race.toPay}</span>
-            <span className={cn(isFree && "text-[color-mix(in_oklab,var(--wp-gold)_65%,var(--wp-ink))]")}>
+            <span className={cn(isFree && "text-gold-deep")}>
               {isFree
                 ? formatPKR(order.guaranteeState === "free" ? order.amountToCollectPkr : Math.max(0, order.totalPkr - order.freeCapPkr))
                 : formatPKR(order.totalPkr)}
@@ -439,7 +439,7 @@ export function RaceScreen({
 
       {order.status === "placed" && (
         <div className="mx-4 mt-4">
-          <Button variant="ghost" className="w-full text-chili" onClick={() => setConfirmCancel(true)}>
+          <Button variant="ghost" className="w-full text-chili-deep" onClick={() => setConfirmCancel(true)}>
             {t.race.cancelOrder}
           </Button>
         </div>

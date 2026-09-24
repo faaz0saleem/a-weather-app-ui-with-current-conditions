@@ -113,7 +113,7 @@ export function LoginForm({ next }: { next: string | null }) {
         </div>
 
         {error && (
-          <p role="alert" className="rounded-2xl bg-chili/10 px-4 py-3 text-sm font-semibold text-chili">
+          <p role="alert" className="rounded-2xl bg-chili/10 px-4 py-3 text-sm font-semibold text-chili-deep">
             {error}
           </p>
         )}

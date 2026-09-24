@@ -46,8 +46,7 @@ export function FoodArt({
             }}
           />
           <span
-            role="img"
-            aria-label={alt}
+            {...(alt ? { role: "img", "aria-label": alt } : { "aria-hidden": true })}
             className={cn("absolute inset-0 grid place-items-center drop-shadow-[0_10px_18px_rgba(0,0,0,.35)] select-none", emojiSize)}
           >
             {emoji}

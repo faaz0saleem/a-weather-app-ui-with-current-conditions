@@ -199,7 +199,7 @@ export function AnalyticsView({ initial }: { initial: AnalyticsReport }) {
                         </td>
                         <td className="px-2 py-2.5">{done ? `${Math.round((row.on_time / done) * 100)}%` : "—"}</td>
                         <td className="px-2 py-2.5">{row.late}</td>
-                        <td className={cn("px-2 py-2.5", row.kitchen_lates > 0 && "font-bold text-chili")}>{row.kitchen_lates}</td>
+                        <td className={cn("px-2 py-2.5", row.kitchen_lates > 0 && "font-bold text-chili-deep")}>{row.kitchen_lates}</td>
                         <td className="px-2 py-2.5">{row.avg_min ?? "—"}</td>
                         <td className="px-2 py-2.5">{formatPKR(row.free_cost_pkr)}</td>
                         <td className="px-5 py-2.5">{formatPKR(row.charged_pkr)}</td>
@@ -220,7 +220,7 @@ function Stat({ label, value, sub, tone }: { label: string; value: string; sub?:
   return (
     <div className="rounded-3xl bg-card p-4 shadow-soft">
       <p className="text-xs font-semibold text-ink-soft">{label}</p>
-      <p className={cn("mt-1 font-display text-2xl font-extrabold", tone === "good" && "text-mint", tone === "bad" && "text-chili")}>{value}</p>
+      <p className={cn("mt-1 font-display text-2xl font-extrabold", tone === "good" && "text-mint-deep", tone === "bad" && "text-chili-deep")}>{value}</p>
       {sub && <p className="mt-0.5 text-xs text-ink-soft">{sub}</p>}
     </div>
   );

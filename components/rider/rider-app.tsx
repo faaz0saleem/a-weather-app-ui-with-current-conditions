@@ -101,7 +101,7 @@ export function RiderApp({ initial }: { initial: RiderState }) {
     <div className="pb-10">
       {/* Header */}
       <header className="flex items-center gap-3 px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-3">
-        <span className="grid size-11 place-items-center rounded-2xl bg-mint/15 font-display text-lg font-extrabold text-mint">
+        <span className="grid size-11 place-items-center rounded-2xl bg-mint/15 font-display text-lg font-extrabold text-mint-deep">
           {state.rider.name.slice(0, 1)}
         </span>
         <div className="min-w-0 flex-1">
@@ -114,7 +114,7 @@ export function RiderApp({ initial }: { initial: RiderState }) {
         <span
           className={cn(
             "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold",
-            online ? "bg-mint/15 text-mint" : "bg-muted text-ink-soft",
+            online ? "bg-mint/15 text-mint-deep" : "bg-muted text-ink-soft",
           )}
         >
           <span className={cn("size-2 rounded-full", online ? "animate-pulse bg-mint" : "bg-ink-soft")} />
@@ -148,7 +148,7 @@ export function RiderApp({ initial }: { initial: RiderState }) {
               <div className="relative mx-auto grid size-28 place-items-center">
                 <span className="absolute inset-0 animate-pulse-ring rounded-full bg-mint/30" />
                 <span className="absolute inset-4 animate-pulse-ring rounded-full bg-mint/30 [animation-delay:.5s]" />
-                <Radar className="relative size-12 text-mint" />
+                <Radar className="relative size-12 text-mint-deep" />
               </div>
               <p className="mt-2 font-display text-xl font-bold">{t.rider.waiting}</p>
               <p className="text-sm text-ink-soft">{t.rider.waitingBody}</p>
@@ -182,7 +182,7 @@ export function RiderApp({ initial }: { initial: RiderState }) {
               maps={mapsLink(job.pickup.lat, job.pickup.lng)}
             >
               {(job.status === "accepted" || job.status === "ready") && (
-                <p className={cn("mt-2 rounded-xl px-3 py-2 text-sm font-semibold", job.status === "ready" ? "bg-mint/15 text-mint" : "bg-muted")}>
+                <p className={cn("mt-2 rounded-xl px-3 py-2 text-sm font-semibold", job.status === "ready" ? "bg-mint/15 text-mint-deep" : "bg-muted")}>
                   {job.status === "ready" ? t.rider.foodReady : t.rider.waitForFood}
                 </p>
               )}
@@ -236,7 +236,7 @@ export function RiderApp({ initial }: { initial: RiderState }) {
             ) : null}
 
             <p className="flex items-center justify-center gap-1.5 text-center text-xs text-ink-soft">
-              <ShieldCheck className="size-4 text-mint" /> {t.rider.safety}
+              <ShieldCheck className="size-4 text-mint-deep" /> {t.rider.safety}
             </p>
           </motion.section>
         )}

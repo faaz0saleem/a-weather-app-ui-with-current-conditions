@@ -171,7 +171,7 @@ export function LiveBoardView({ initial }: { initial: LiveBoard }) {
                         </td>
                         <td className="hidden px-2 py-3 lg:table-cell">
                           {o.predictedArrival ? (
-                            <span className={cn("tabular text-xs font-semibold", o.lateRisk ? "text-chili" : "text-ink-soft")}>
+                            <span className={cn("tabular text-xs font-semibold", o.lateRisk ? "text-chili-deep" : "text-ink-soft")}>
                               {o.lateRisk && "⚠ "}
                               {formatTime(o.predictedArrival)}
                             </span>
@@ -202,7 +202,7 @@ export function LiveBoardView({ initial }: { initial: LiveBoard }) {
                         </td>
                         <td className="px-2 py-3 text-right" onClick={(e) => e.stopPropagation()}>
                           <Button size="icon-sm" variant="ghost" aria-label={`Cancel ${o.code}`} onClick={() => setCancelling(o)}>
-                            <X className="size-4 text-chili" />
+                            <X className="size-4 text-chili-deep" />
                           </Button>
                         </td>
                       </tr>
@@ -238,7 +238,7 @@ function Tile({ label, value, sub, icon, tone }: { label: string; value: number 
       <p className="flex items-center gap-1.5 text-xs font-bold tracking-wider text-ink-soft uppercase">
         {icon} {label}
       </p>
-      <p className={cn("mt-1 font-display text-3xl font-extrabold", tone === "bad" && "text-chili", tone === "warn" && "text-[color-mix(in_oklab,var(--wp-amber)_70%,var(--wp-ink))]")}>
+      <p className={cn("mt-1 font-display text-3xl font-extrabold", tone === "bad" && "text-chili-deep", tone === "warn" && "text-amber-deep")}>
         {value}
       </p>
       {sub && <p className="text-xs text-ink-soft">{sub}</p>}

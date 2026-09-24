@@ -122,7 +122,7 @@ export function CheckoutView({
           <div className="mb-2 flex items-center justify-between">
             <h2 className="text-xs font-bold tracking-wider text-ink-soft uppercase">{t.checkout.deliverTo}</h2>
             {signedIn && (
-              <Link href="/addresses/new?next=/checkout" className="text-sm font-bold text-brand">
+              <Link href="/addresses/new?next=/checkout" className="text-sm font-bold text-brand-deep">
                 + {t.profile.addAddress}
               </Link>
             )}
@@ -202,7 +202,7 @@ export function CheckoutView({
         {/* Bill — no hidden fees */}
         <section className="rounded-3xl bg-card p-4 shadow-soft">
           {quote?.pricingError && (
-            <p className="mb-3 flex items-center gap-2 rounded-2xl bg-chili/10 px-3 py-2 text-sm font-semibold text-chili">
+            <p className="mb-3 flex items-center gap-2 rounded-2xl bg-chili/10 px-3 py-2 text-sm font-semibold text-chili-deep">
               <TriangleAlert className="size-4" /> {quote.pricingError}
             </p>
           )}
@@ -221,7 +221,7 @@ export function CheckoutView({
                 <dd>{formatPKR(pricing.totalPkr)}</dd>
               </div>
               <p className="flex items-center gap-1.5 pt-1 text-xs text-ink-soft">
-                <ShieldCheck className="size-4 text-mint" /> {t.checkout.noHiddenFees}
+                <ShieldCheck className="size-4 text-mint-deep" /> {t.checkout.noHiddenFees}
               </p>
             </dl>
           ) : (
@@ -273,7 +273,7 @@ function GuaranteeStatus({ quote, loading }: { quote: CheckoutQuote | null; load
     if (q.code === "no_address") return null;
     return (
       <motion.section initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="rounded-3xl bg-chili/10 p-4" role="alert">
-        <p className="flex items-center gap-2 font-display text-lg font-bold text-chili">
+        <p className="flex items-center gap-2 font-display text-lg font-bold text-chili-deep">
           <TriangleAlert className="size-5" /> {t.checkout.cantPlace}
         </p>
         <p className="mt-1 font-semibold text-ink">{q.message}</p>

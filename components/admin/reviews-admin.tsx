@@ -53,7 +53,7 @@ export function ReviewsAdmin({ rows }: { rows: Row[] }) {
       <AdminHeader title="GPS reviews" subtitle="Riders who tapped Arrived outside the 75 m geofence (or without GPS) had to give a reason. Check them here." />
       {open.length === 0 && (
         <p className="mb-6 flex items-center gap-2 rounded-3xl bg-card p-6 text-ink-soft shadow-soft">
-          <CheckCircle2 className="text-mint" /> Nothing waiting for review.
+          <CheckCircle2 className="text-mint-deep" /> Nothing waiting for review.
         </p>
       )}
       <ul className="grid gap-4 lg:grid-cols-2">
@@ -70,7 +70,7 @@ export function ReviewsAdmin({ rows }: { rows: Row[] }) {
             />
             <div className="p-4">
               <p className="flex items-center gap-2 font-bold">
-                <MapPinOff className="size-4 text-chili" /> {r.code} · {r.restaurants?.name}
+                <MapPinOff className="size-4 text-chili-deep" /> {r.code} · {r.restaurants?.name}
                 <Badge variant={r.guarantee_state === "free" ? "gold" : "mint"}>{r.guarantee_state}</Badge>
               </p>
               <p className="text-sm text-ink-soft">

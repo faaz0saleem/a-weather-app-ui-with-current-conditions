@@ -107,7 +107,7 @@ export function RestaurantMenu({ restaurant: r }: { restaurant: RestaurantPageVi
           )}
         </div>
         {!q.ok && (
-          <div role="status" className="mt-3 rounded-2xl bg-chili/10 px-4 py-3 text-sm font-semibold text-chili">
+          <div role="status" className="mt-3 rounded-2xl bg-chili/10 px-4 py-3 text-sm font-semibold text-chili-deep">
             {q.message}
           </div>
         )}
@@ -220,7 +220,7 @@ function MenuRow({
         {item.description && <p className="mt-1 line-clamp-2 text-[13px] text-ink-soft">{item.description}</p>}
         <p className="tabular mt-2 font-display font-bold">
           {formatPKR(item.pricePkr)}
-          {soldOut && <span className="ml-2 text-xs font-bold text-chili uppercase">{t.restaurant.soldOut}</span>}
+          {soldOut && <span className="ml-2 text-xs font-bold text-chili-deep uppercase">{t.restaurant.soldOut}</span>}
         </p>
       </button>
       <div className="relative shrink-0">

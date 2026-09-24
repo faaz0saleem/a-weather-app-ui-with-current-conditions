@@ -46,7 +46,7 @@ export function StackedColumns({
 
   return (
     <div className="relative">
-      <svg viewBox={`0 0 ${W} ${height}`} className="h-auto w-full" role="img" aria-label="Column chart">
+      <svg viewBox={`0 0 ${W} ${height}`} className="h-auto w-full" role="img" aria-label={`Column chart: ${series.map((s) => s.label).join(" and ")} by ${data.length} categories. Use the Table button for the numbers.`}>
         {ticks.map((tv) => (
           <g key={tv}>
             <line x1={pad.l} x2={W - pad.r} y1={y(tv)} y2={y(tv)} stroke="var(--wp-line)" strokeWidth={1} />
@@ -64,14 +64,8 @@ export function StackedColumns({
           return (
             <g
               key={d.x}
-              tabIndex={0}
-              role="button"
-              aria-label={`${d.x}: ${series.map((se) => `${se.label} ${d.values[se.key] ?? 0}`).join(", ")}`}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
-              onFocus={() => setHover(i)}
-              onBlur={() => setHover(null)}
-              className="outline-none"
             >
               <rect x={pad.l + band * i} y={pad.t} width={band} height={innerH} fill="transparent" />
               {segs.map(({ se, v }, si) => {

@@ -25,10 +25,10 @@ export const TONE_BG: Record<TimerTone, string> = {
 };
 
 export const TONE_TEXT: Record<TimerTone, string> = {
-  mint: "text-mint",
-  amber: "text-amber",
-  chili: "text-chili",
-  gold: "text-gold",
+  mint: "text-mint-deep",
+  amber: "text-amber-deep",
+  chili: "text-chili-deep",
+  gold: "text-gold-deep",
   muted: "text-ink-soft",
 };
 

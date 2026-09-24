@@ -26,6 +26,11 @@
   --color-gold-soft: var(--wp-goldSoft);
   --color-chart-a: var(--wp-chartA);
   --color-chart-b: var(--wp-chartB);
+  --color-brand-deep: var(--wp-brandDeep);
+  --color-mint-deep: var(--wp-mintDeep);
+  --color-chili-deep: var(--wp-chiliDeep);
+  --color-amber-deep: var(--wp-amberDeep);
+  --color-gold-deep: var(--wp-goldDeep);
 
   /* shadcn/ui semantic tokens */
   --color-background: var(--wp-cream);
@@ -92,6 +97,9 @@
   h1, h2, h3, .font-display {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+  }
+  a {
+    color: inherit;
   }
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-brand;

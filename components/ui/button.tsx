@@ -16,7 +16,7 @@ const buttonVariants = cva(
         destructive: "bg-chili text-white hover:brightness-105",
         success: "bg-mint text-white hover:brightness-105",
         gold: "bg-gold text-ink hover:brightness-105",
-        link: "text-brand underline-offset-4 hover:underline",
+        link: "text-brand-deep underline-offset-4 hover:underline",
       },
       size: {
         default: "h-12 px-5 text-[15px]",

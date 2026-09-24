@@ -62,7 +62,7 @@ export default async function HomePage() {
 
       {showScore && (
         <div className="mb-5 flex items-center gap-4 rounded-3xl bg-card p-4 shadow-soft">
-          <div className="grid size-12 place-items-center rounded-2xl bg-mint/15 text-mint">
+          <div className="grid size-12 place-items-center rounded-2xl bg-mint/15 text-mint-deep">
             <TrendingUp className="size-6" />
           </div>
           <div className="flex-1">

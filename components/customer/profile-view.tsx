@@ -6,6 +6,7 @@ import { useSyncExternalStore } from "react";
 import { ChevronRight, LifeBuoy, LogOut, MapPin, Monitor, Moon, Plus, Star, Sun, Trash2 } from "lucide-react";
 import { useTheme } from "@/components/providers/theme";
 import { toast } from "sonner";
+import { InstallButton } from "@/components/providers/install-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/config/brand";
@@ -67,6 +68,8 @@ export function ProfileView({
         </div>
       </div>
 
+      <InstallButton />
+
       {roleHome && (
         <Button asChild variant="ink" className="mb-5 w-full">
           <Link href={roleHome}>Open {role} app</Link>
@@ -76,7 +79,7 @@ export function ProfileView({
       <section className="mb-5">
         <div className="mb-2 flex items-center justify-between">
           <h2 className="font-display text-lg font-bold">{t.profile.addresses}</h2>
-          <Link href="/addresses/new?next=/profile" className="flex items-center gap-1 text-sm font-bold text-brand">
+          <Link href="/addresses/new?next=/profile" className="flex items-center gap-1 text-sm font-bold text-brand-deep">
             <Plus className="size-4" /> {t.profile.addAddress}
           </Link>
         </div>
@@ -95,7 +98,7 @@ export function ProfileView({
                   <Star className="size-4" />
                 </button>
               )}
-              <button onClick={() => remove(a.id)} aria-label={t.common.delete} className="grid size-9 place-items-center rounded-full text-chili hover:bg-chili/10">
+              <button onClick={() => remove(a.id)} aria-label={t.common.delete} className="grid size-9 place-items-center rounded-full text-chili-deep hover:bg-chili/10">
                 <Trash2 className="size-4" />
               </button>
             </li>
@@ -134,7 +137,7 @@ export function ProfileView({
           <span className="text-sm text-ink-soft">{brand.supportPhone}</span>
           <ChevronRight className="size-4 text-ink-soft" />
         </a>
-        <button onClick={signOut} className="flex w-full items-center gap-3 p-4 text-left font-semibold text-chili">
+        <button onClick={signOut} className="flex w-full items-center gap-3 p-4 text-left font-semibold text-chili-deep">
           <LogOut className="size-5" /> {t.common.signOut}
         </button>
       </section>

@@ -39,7 +39,7 @@ export function TodayStats({ query }: { query: string }) {
       {cards.map((c) => (
         <div key={c.label} className="rounded-3xl bg-card p-4 shadow-soft">
           <p className="text-xs font-bold tracking-wider text-ink-soft uppercase">{c.label}</p>
-          <p className={cn("tabular mt-1 font-display text-3xl font-extrabold", c.tone === "good" && "text-mint", c.tone === "bad" && "text-chili")}>{c.value}</p>
+          <p className={cn("tabular mt-1 font-display text-3xl font-extrabold", c.tone === "good" && "text-mint-deep", c.tone === "bad" && "text-chili-deep")}>{c.value}</p>
         </div>
       ))}
     </div>

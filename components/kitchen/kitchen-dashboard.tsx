@@ -114,7 +114,7 @@ export function KitchenDashboard({
           <h1 className="truncate font-display text-2xl font-extrabold">{restaurant.name}</h1>
           <p className="text-sm text-ink-soft">
             {asAdmin ? (
-              <Link href="/restaurant" className="font-semibold text-brand">
+              <Link href="/restaurant" className="font-semibold text-brand-deep">
                 ← all kitchens
               </Link>
             ) : (

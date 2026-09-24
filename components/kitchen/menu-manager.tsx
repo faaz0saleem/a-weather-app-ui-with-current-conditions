@@ -295,7 +295,7 @@ function ItemForm({
           {busy && <Loader2 className="animate-spin" />} {t.common.save}
         </Button>
         {item.id && (
-          <Button variant="ghost" className="text-chili" onClick={remove}>
+          <Button variant="ghost" className="text-chili-deep" onClick={remove}>
             {t.common.delete}
           </Button>
         )}

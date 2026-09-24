@@ -70,7 +70,7 @@ export function SimAdmin({ restaurants }: { restaurants: { id: string; name: str
       <div className="mb-5 grid gap-3 sm:grid-cols-3">
         <div className="rounded-3xl bg-card p-4 shadow-soft">
           <p className="text-xs font-semibold text-ink-soft">Simulator</p>
-          <p className={cn("font-display text-2xl font-extrabold", state?.simRunning ? "text-mint" : "text-ink-soft")}>{state?.simRunning ? "Running" : "Stopped"}</p>
+          <p className={cn("font-display text-2xl font-extrabold", state?.simRunning ? "text-mint-deep" : "text-ink-soft")}>{state?.simRunning ? "Running" : "Stopped"}</p>
         </div>
         <div className="rounded-3xl bg-card p-4 shadow-soft">
           <p className="text-xs font-semibold text-ink-soft">Clock</p>

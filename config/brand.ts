@@ -42,6 +42,12 @@ export const brand = {
       // Analytics chart colours (validated for colour-blind separation + contrast on the card surface).
       chartA: "#D9650B",
       chartB: "#2F5BD3",
+      // Text-safe "deep" variants of status/brand colours (≥ 4.5:1 on their tinted backgrounds).
+      brandDeep: "#A34A00",
+      mintDeep: "#08694D",
+      chiliDeep: "#B42318",
+      amberDeep: "#8A5A00",
+      goldDeep: "#7A5600",
     },
     dark: {
       brand: "#F59A3C",
@@ -60,6 +66,11 @@ export const brand = {
       goldSoft: "#3B3014",
       chartA: "#DC6E14",
       chartB: "#5B7FE6",
+      brandDeep: "#FFB060",
+      mintDeep: "#5EE7BD",
+      chiliDeep: "#FF8A8A",
+      amberDeep: "#FFD166",
+      goldDeep: "#F5D26B",
     },
   },
 } as const;
