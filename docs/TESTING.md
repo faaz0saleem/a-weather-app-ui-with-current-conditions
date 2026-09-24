@@ -78,3 +78,26 @@ Full phone instructions (HTTPS tunnel, fake GPS): **[PHONE-TESTING.md](PHONE-TES
 5. **Delivered** → confirm the cash → back to "Looking for a job", today's earnings updated. Pay per
    job is fixed at assignment (base + per km) and never changes.
 6. **Go offline** is blocked while you have a job.
+
+## Milestone 5 — race screen, free-on-late, celebration, share card
+
+The fastest way is the **Simulation** page in `/admin` (milestone 6), which has a **10× time warp**
+button. Without it, you'd wait the full 30 minutes — which also works.
+
+1. Place an order (customer), accept it (kitchen). Keep the customer's race screen open.
+2. Watch the ring: **mint** → **amber** under 10 min → **chili red** under 3 min.
+3. **Admin → Simulation → Time warp 10×** — the ring now runs 10× faster (the phone syncs to server
+   time, so its own clock is never trusted).
+4. The second the deadline passes, the screen flips to **gold** and the full-screen **"It's on us 🎉"**
+   celebration appears with confetti and a haptic buzz. The bill shows **Pay rider: Rs 0** (or only the
+   amount above Rs 3,000).
+5. **Share the free win** → on a phone this opens the share sheet (WhatsApp/Instagram) with a
+   1080×1350 image card; on a laptop use **Download image**. Direct link: `/api/share/<order-id>`.
+6. The rider's job now says **Collect Rs 0 · Paid by WaqtPe** — no mention of lateness.
+7. Finish the delivery. **Orders** now shows the gold **Saved from late orders** total.
+8. **Split clock:** if the kitchen marks ready long after its committed prep, the late is blamed on the
+   **kitchen** and charged to the restaurant (see **Today** on the kitchen dashboard and **Analytics**
+   in admin). If the ride ran long, it's **delivery** (WaqtPe pays).
+9. Turn the time warp **off** (snaps back to real time) and **Clean up test orders**.
+
+Automated: `npm test` (95 unit tests, incl. the guarantee engine and "riders never see the deadline").

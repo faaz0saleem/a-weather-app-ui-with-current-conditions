@@ -117,7 +117,7 @@ export function Celebration({
               transition={{ delay: 0.15 }}
               className="font-display text-[54px] leading-[0.95] font-extrabold"
             >
-              {t.race.freeFlip}
+              {t.race.freeFlipTitle}
             </motion.h2>
             <motion.p initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }} className="mt-4 text-lg font-semibold">
               {t.race.freeFlipBody(amountPkr)}

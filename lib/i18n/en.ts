@@ -203,6 +203,7 @@ export const en = {
     cancelConfirm: "Cancel this order? The kitchen hasn't accepted it yet.",
     cancelled_by_customer: "You cancelled this order.",
     freeFlip: "It's on us 🎉",
+    freeFlipTitle: "It's on us",
     freeFlipBody: (amount: number) => `We were late — so this one's free. ${formatPKR(amount)} off.`,
     freeAboveCap: (collect: number) => `Just ${formatPKR(collect)} above our cap to pay.`,
     freeShare: "Share the free win",
