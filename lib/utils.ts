@@ -8,7 +8,11 @@ export function cn(...inputs: ClassValue[]) {
 /** Light haptic tap where supported (Android Chrome). Silently no-ops elsewhere. */
 export function haptic(pattern: number | number[] = 12) {
   try {
-    if (typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate(pattern);
+    if (typeof navigator === "undefined" || !("vibrate" in navigator)) return;
+    // Browsers only allow vibration after the user has interacted with the page.
+    const ua = (navigator as Navigator & { userActivation?: { hasBeenActive: boolean } }).userActivation;
+    if (ua && !ua.hasBeenActive) return;
+    navigator.vibrate(pattern);
   } catch {
     /* ignore */
   }

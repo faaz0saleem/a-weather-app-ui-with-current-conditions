@@ -1,5 +1,7 @@
 "use client";
 
+import { haptic } from "@/lib/utils";
+
 /**
  * Kitchen alarm: a loud, repeating two-tone beep made with WebAudio (no audio
  * files to load). Browsers only allow sound after a user gesture, which is why
@@ -42,11 +44,7 @@ function beep(freq: number, gain = 0.35, dur = 0.16, at = 0) {
 
 function ring() {
   [0, 0.2, 0.4, 0.8, 1.0, 1.2].forEach((at, i) => beep(i % 2 ? 660 : 988, 0.4, 0.16, at));
-  try {
-    navigator.vibrate?.([200, 100, 200, 100, 400]);
-  } catch {
-    /* ignore */
-  }
+  haptic([200, 100, 200, 100, 400]);
 }
 
 /** Start/stop the repeating alarm (idempotent). */

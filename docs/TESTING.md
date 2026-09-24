@@ -62,3 +62,19 @@ Best on a tablet or a laptop window ≥ 1024 px wide (it also works on a phone).
    15 → it shows "hidden" (not fast-lane) and disappears from the customer menu. Upload a photo.
 9. **Today** tab: orders, on-time %, lates caused by the kitchen, kitchen charges.
 10. Admin can open any kitchen: **Dev → Admin** → `/restaurant`.
+
+## Milestone 4 — rider app
+
+Full phone instructions (HTTPS tunnel, fake GPS): **[PHONE-TESTING.md](PHONE-TESTING.md)**.
+
+1. Place an order as a customer and accept + mark it ready as the kitchen (milestone 3).
+2. **Dev → Rider** — the one named on the kitchen card ("Bilal Ahmed is coming"). `/rider` shows:
+   **Collect Rs 450** in huge text, the pickup card ("Food is ready — pick it up"), the drop card with
+   the gate note, *Open in Google Maps* and call buttons. **No timer, no deadline, no hurry** — by design.
+3. **Picked up** → the customer's race screen moves to *On the way* and shows the rider on the map.
+4. Set your location ~300 m from the customer (DevTools → Sensors) → **Arrived** → "You're not at the
+   pin" → pick a reason → it goes through but is **flagged for admin review**.
+   Set it within 75 m → **Arrived** goes straight through and the customer's clock stops.
+5. **Delivered** → confirm the cash → back to "Looking for a job", today's earnings updated. Pay per
+   job is fixed at assignment (base + per km) and never changes.
+6. **Go offline** is blocked while you have a job.

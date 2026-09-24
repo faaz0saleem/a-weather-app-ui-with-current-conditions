@@ -384,6 +384,7 @@ export const en = {
     todayEarnings: "Today's earnings",
     todayJobs: (n: number) => (n === 1 ? "1 job" : `${n} jobs`),
     cashCollected: "Cash collected",
+    road: "ridden",
     safety: "Ride safe. No job is worth a risk.",
     payNote: "Pay per job is fixed — it never changes, whatever the traffic.",
     items: (n: number) => (n === 1 ? "1 item" : `${n} items`),
