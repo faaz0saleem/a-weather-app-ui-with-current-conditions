@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Dark mode is class-based (next-themes). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Colour values are injected at runtime from config/brand.ts (see
+ * components/brand/brand-style.tsx) as --wp-* variables. Everything below only
+ * maps them to Tailwind tokens, so the brand file stays the single source.
+ */
+@theme inline {
+  --color-brand: var(--wp-brand);
+  --color-brand-ink: var(--wp-brandInk);
+  --color-brand-soft: var(--wp-brandSoft);
+  --color-ink: var(--wp-ink);
+  --color-ink-soft: var(--wp-inkSoft);
+  --color-cream: var(--wp-cream);
+  --color-card: var(--wp-card);
+  --color-muted: var(--wp-muted);
+  --color-line: var(--wp-line);
+  --color-mint: var(--wp-mint);
+  --color-amber: var(--wp-amber);
+  --color-chili: var(--wp-chili);
+  --color-gold: var(--wp-gold);
+  --color-gold-soft: var(--wp-goldSoft);
+
+  /* shadcn/ui semantic tokens */
+  --color-background: var(--wp-cream);
+  --color-foreground: var(--wp-ink);
+  --color-card-foreground: var(--wp-ink);
+  --color-popover: var(--wp-card);
+  --color-popover-foreground: var(--wp-ink);
+  --color-primary: var(--wp-brand);
+  --color-primary-foreground: var(--wp-brandInk);
+  --color-secondary: var(--wp-muted);
+  --color-secondary-foreground: var(--wp-ink);
+  --color-accent: var(--wp-muted);
+  --color-accent-foreground: var(--wp-ink);
+  --color-muted-foreground: var(--wp-inkSoft);
+  --color-destructive: var(--wp-chili);
+  --color-border: var(--wp-line);
+  --color-input: var(--wp-line);
+  --color-ring: var(--wp-brand);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  --shadow-soft: 0 1px 2px rgb(26 22 18 / 0.04), 0 8px 24px -12px rgb(26 22 18 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(26 22 18 / 0.06), 0 18px 40px -16px rgb(26 22 18 / 0.35);
+
+  --animate-shimmer: shimmer 1.6s linear infinite;
+  --animate-pulse-ring: pulse-ring 1.4s ease-out infinite;
+  --animate-wiggle: wiggle 0.6s ease-in-out infinite;
+
+  @keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-6deg); }
+    75% { transform: rotate(6deg); }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+  button, [role="button"] {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* Big timer digits that never jitter. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  }
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--wp-muted) 25%, var(--wp-line) 37%, var(--wp-muted) 63%);
+    background-size: 400% 100%;
+    animation: var(--animate-shimmer);
+  }
+}
+
+/* Leaflet: keep controls on-brand and let dark mode dim the OSM tiles. */
+.leaflet-container {
+  font-family: var(--font-jakarta), sans-serif;
+  background: var(--wp-muted);
+}
+.dark .leaflet-tile-pane {
+  filter: brightness(0.62) invert(1) contrast(0.9) hue-rotate(200deg) saturate(0.35) brightness(0.85);
+}
+.leaflet-control-attribution {
+  font-size: 9px !important;
+  background: color-mix(in oklab, var(--wp-card) 80%, transparent) !important;
+  color: var(--wp-inkSoft) !important;
+}
+.leaflet-control-attribution a {
+  color: inherit !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
