@@ -9,6 +9,12 @@ const supabaseHost = (() => {
 })();
 
 const nextConfig: NextConfig = {
+  // Hostinger builds with output "standalone" automatically. Set STANDALONE=1 to reproduce locally.
+  ...(process.env.STANDALONE === "1" ? { output: "standalone" as const } : {}),
+  // The share card reads these fonts from disk — make sure standalone bundles include them.
+  outputFileTracingIncludes: {
+    "/api/share/[id]": ["./assets/fonts/**/*"],
+  },
   // Test on a real phone over HTTPS (GPS needs it): Cloudflare quick tunnels / ngrok. See docs/PHONE-TESTING.md.
   allowedDevOrigins: ["*.trycloudflare.com", "*.ngrok-free.app", "*.ngrok.app"],
   images: {

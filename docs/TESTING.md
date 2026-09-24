@@ -134,3 +134,11 @@ Automated: `npm test` (95 unit tests, incl. the guarantee engine and "riders nev
 4. **Loading:** pages show skeletons, not spinners. A wrong URL shows a friendly 404.
 5. **Accessibility:** every screen passes an automated WCAG 2 AA scan (axe) in light and dark; the app
    works with the keyboard, has a *Skip to content* link and respects "reduce motion".
+
+## Milestone 8 — deploy
+
+Follow **[DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md)**. After deploying:
+1. `https://your-address/api/time` returns JSON.
+2. Place an order from your phone, accept it on a tablet, deliver it from another phone as a rider.
+3. Leave an order unaccepted for 2 minutes with every browser closed — it still auto-cancels (the
+   server's own timer, plus the Supabase backup ping if you set it up).
