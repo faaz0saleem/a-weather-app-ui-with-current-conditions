@@ -44,7 +44,7 @@ export type PricedLine = {
   emoji: string;
   unit_price_pkr: number;
   qty: number;
-  options: { group: string; option: string; price_pkr: number }[];
+  options: { group_id: string; group: string; option_id: string; option: string; price_pkr: number }[];
   line_total_pkr: number;
   prep_min: number;
 };
@@ -97,7 +97,7 @@ export function priceLine(
     for (const optId of picked) {
       const opt = g.options.find((o) => o.id === optId);
       if (!opt) return { ok: false, code: "bad_options" };
-      chosen.push({ group: g.name, option: opt.name, price_pkr: opt.price_pkr });
+      chosen.push({ group_id: g.id, group: g.name, option_id: opt.id, option: opt.name, price_pkr: opt.price_pkr });
     }
   }
   // Reject options for groups that don't exist.

@@ -140,7 +140,7 @@ export const en = {
     place: (total: number) => `Place order · ${formatPKR(total)}`,
     placing: "Placing your order…",
     checking: "Checking the clock…",
-    guaranteeOn: "⚡ 30-minute guarantee",
+    guaranteeOn: "30-minute guarantee",
     guaranteeOnBody: (eta: number, cap: number) =>
       `We predict ~${eta} min. If we're not at your gate within 30, it's free (up to ${formatPKR(cap)}).`,
     guaranteeOff: "No timer right now",
@@ -210,6 +210,8 @@ export const en = {
     lateBy: (s: string) => `Late by ${s}`,
     timeline: "Timeline",
     help: "Need help? Call us",
+    helpShort: "Help",
+    placedToast: "Order placed — the clock has started!",
   },
 
   orders: {
