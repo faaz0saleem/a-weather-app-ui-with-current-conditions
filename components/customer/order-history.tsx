@@ -52,7 +52,7 @@ export function OrderHistory({ orders, savedPkr, freeCount }: { orders: OrderHis
   return (
     <div className="space-y-4">
       {freeCount > 0 && (
-        <div className="relative overflow-hidden rounded-3xl bg-gold p-5 text-ink">
+        <div className="relative overflow-hidden light-scope rounded-3xl bg-gold p-5 text-ink">
           <TruckArtPattern opacity={0.14} />
           <p className="relative text-xs font-bold tracking-wider uppercase opacity-75">{t.orders.savedTotal}</p>
           <p className="tabular relative font-display text-4xl font-extrabold">{formatPKR(savedPkr)}</p>

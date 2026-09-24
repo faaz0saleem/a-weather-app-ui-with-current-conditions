@@ -77,7 +77,7 @@ export function Celebration({
           role="dialog"
           aria-modal="true"
           aria-label={t.race.freeFlip}
-          className="fixed inset-0 z-[60] flex flex-col overflow-hidden bg-gold text-ink"
+          className="light-scope fixed inset-0 z-[60] flex flex-col overflow-hidden bg-gold text-ink"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

@@ -15,7 +15,7 @@ const buttonVariants = cva(
         soft: "bg-brand-soft text-ink hover:brightness-[0.98]",
         destructive: "bg-chili text-white hover:brightness-105",
         success: "bg-mint text-white hover:brightness-105",
-        gold: "bg-gold text-ink hover:brightness-105",
+        gold: "bg-gold text-brand-ink hover:brightness-105",
         link: "text-brand-deep underline-offset-4 hover:underline",
       },
       size: {
