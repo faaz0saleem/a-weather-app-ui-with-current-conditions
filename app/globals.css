@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Colours come from config/brand.ts (injected as --wp-* by <BrandStyle/>). */
+@theme inline {
+  --color-brand: var(--wp-brand);
+  --color-brand-ink: var(--wp-brandInk);
+  --color-brand-soft: var(--wp-brandSoft);
+  --color-brand-deep: var(--wp-brandDeep);
+  --color-ink: var(--wp-ink);
+  --color-ink-soft: var(--wp-inkSoft);
+  --color-cream: var(--wp-cream);
+  --color-card: var(--wp-card);
+  --color-muted: var(--wp-muted);
+  --color-line: var(--wp-line);
+  --color-mint: var(--wp-mint);
+  --color-mint-deep: var(--wp-mintDeep);
+  --color-amber: var(--wp-amber);
+  --color-chili: var(--wp-chili);
+  --color-gold: var(--wp-gold);
+  --color-gold-soft: var(--wp-goldSoft);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-jakarta), ui-sans-serif, sans-serif;
+  --shadow-soft: 0 1px 2px rgb(26 22 18 / 0.04), 0 10px 30px -14px rgb(26 22 18 / 0.2);
+  --shadow-lift: 0 2px 4px rgb(26 22 18 / 0.06), 0 30px 60px -24px rgb(26 22 18 / 0.45);
+}
+
+@keyframes ring {
+  from { stroke-dashoffset: 170; }
+  to { stroke-dashoffset: 440; }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-cream font-sans text-ink antialiased; }
+  h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+  a { color: inherit; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
+}
+
+@layer utilities {
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
