@@ -101,3 +101,25 @@ button. Without it, you'd wait the full 30 minutes — which also works.
 9. Turn the time warp **off** (snaps back to real time) and **Clean up test orders**.
 
 Automated: `npm test` (95 unit tests, incl. the guarantee engine and "riders never see the deadline").
+
+## Milestone 6 — admin, analytics, simulation
+
+**Dev → Admin** → `/admin` (best on a laptop).
+
+1. **Simulation** → *Start* → *Spawn 4* → *Time warp 10×*. Switch to **Live**: each order shows its clock,
+   predicted arrival, rider (change it from the dropdown = manual reassign), and a ✕ to cancel.
+   Predicted-late rows turn red. The fleet map shows riders moving. In ~3 real minutes the orders are
+   delivered on time.
+2. Spawn 2 more with **Kitchen runs late by 20 min** → they go **FREE** at the deadline and, on
+   arrival, are blamed on the **kitchen** (Analytics → Lates by cause, and the kitchen's charge).
+3. **Analytics** → tick *Include test orders*: orders, avg delivery time (placed → arrived), on-time %,
+   cost of free orders, kitchen charges, orders by hour (hover a column, or *Table*), by restaurant.
+4. **Settings**: flip **Rain Mode** → the customer home shows the rain banner, cards say *No timer*,
+   checkout shows the honest longer ETA. Edit any number (e.g. free cap) → *Save*.
+5. **Zone**: drag corners, tap the map to add one, tap a corner then *Delete corner*, *Save zone*.
+   Addresses outside are refused at checkout.
+6. **Restaurants**: pause a kitchen for 30 min (customers see "back in ~30 min"), hide one, edit hours /
+   radius / pin, add a kitchen login, open its dashboard.
+7. **Riders**: add a rider (phone + temporary password), deactivate one.
+8. **Reviews**: arrivals made outside the 75 m geofence with a reason; mark them reviewed.
+9. **Simulation → Clean up** when done (deletes test orders, stops the sim, real time).

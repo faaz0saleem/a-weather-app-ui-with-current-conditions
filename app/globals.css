@@ -24,6 +24,8 @@
   --color-chili: var(--wp-chili);
   --color-gold: var(--wp-gold);
   --color-gold-soft: var(--wp-goldSoft);
+  --color-chart-a: var(--wp-chartA);
+  --color-chart-b: var(--wp-chartB);
 
   /* shadcn/ui semantic tokens */
   --color-background: var(--wp-cream);

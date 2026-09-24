@@ -81,6 +81,11 @@ function DraggableMarker({ m }: { m: MapMarker }) {
         const ll = ref.current?.getLatLng();
         if (ll) m.onDragEnd?.({ lat: ll.lat, lng: ll.lng });
       },
+      click(e: L.LeafletMouseEvent) {
+        if (!m.onClick) return;
+        L.DomEvent.stopPropagation(e);
+        m.onClick();
+      },
     }),
     [m],
   );

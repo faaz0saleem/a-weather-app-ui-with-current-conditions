@@ -483,6 +483,7 @@ export type Database = {
           rider_payout_pkr: number
           sealed_bag_photo_url: string | null
           settings_snapshot: Json
+          sim: Json | null
           status: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at: string
@@ -552,6 +553,7 @@ export type Database = {
           rider_payout_pkr?: number
           sealed_bag_photo_url?: string | null
           settings_snapshot?: Json
+          sim?: Json | null
           status?: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at?: string
@@ -621,6 +623,7 @@ export type Database = {
           rider_payout_pkr?: number
           sealed_bag_photo_url?: string | null
           settings_snapshot?: Json
+          sim?: Json | null
           status?: Database["public"]["Enums"]["order_status"]
           total_pkr?: number
           updated_at?: string
@@ -1029,6 +1032,7 @@ export type Database = {
           rider_payout_pkr: number
           sealed_bag_photo_url: string | null
           settings_snapshot: Json
+          sim: Json | null
           status: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at: string
@@ -1113,6 +1117,7 @@ export type Database = {
           rider_payout_pkr: number
           sealed_bag_photo_url: string | null
           settings_snapshot: Json
+          sim: Json | null
           status: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at: string
@@ -1191,6 +1196,7 @@ export type Database = {
           rider_payout_pkr: number
           sealed_bag_photo_url: string | null
           settings_snapshot: Json
+          sim: Json | null
           status: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at: string
@@ -1299,6 +1305,7 @@ export type Database = {
           rider_payout_pkr: number
           sealed_bag_photo_url: string | null
           settings_snapshot: Json
+          sim: Json | null
           status: Database["public"]["Enums"]["order_status"]
           total_pkr: number
           updated_at: string

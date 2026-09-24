@@ -16,6 +16,7 @@ export type MapMarker = {
   title?: string;
   draggable?: boolean;
   onDragEnd?: (p: LatLng) => void;
+  onClick?: () => void;
   pulse?: boolean;
   /** Rider heading/"late risk" etc. */
   tone?: "default" | "warn" | "muted";

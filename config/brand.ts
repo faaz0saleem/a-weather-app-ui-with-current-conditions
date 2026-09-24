@@ -39,6 +39,9 @@ export const brand = {
       chili: "#E03131",
       gold: "#D4A017",
       goldSoft: "#FFF3C4",
+      // Analytics chart colours (validated for colour-blind separation + contrast on the card surface).
+      chartA: "#D9650B",
+      chartB: "#2F5BD3",
     },
     dark: {
       brand: "#F59A3C",
@@ -55,6 +58,8 @@ export const brand = {
       chili: "#FF6B6B",
       gold: "#F2C94C",
       goldSoft: "#3B3014",
+      chartA: "#DC6E14",
+      chartB: "#5B7FE6",
     },
   },
 } as const;
