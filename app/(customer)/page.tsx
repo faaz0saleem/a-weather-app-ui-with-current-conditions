@@ -45,7 +45,7 @@ export default async function HomePage() {
       {active.length > 0 && (
         <div className="mb-5 space-y-2">
           {active.map((o) => (
-            <ActiveOrderBanner key={o.id} order={o} />
+            <ActiveOrderBanner key={o.id} order={o} serverNow={ctx.now.getTime()} />
           ))}
         </div>
       )}

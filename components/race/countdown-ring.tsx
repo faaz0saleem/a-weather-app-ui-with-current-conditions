@@ -25,6 +25,8 @@ export function ClockDigits({ seconds, className }: { seconds: number; className
   );
 }
 
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
 const SIZE = 280;
 const STROKE = 18;
 const R = (SIZE - STROKE) / 2 - 10;
@@ -59,10 +61,10 @@ export function CountdownRing({
           return (
             <line
               key={i}
-              x1={SIZE / 2 + inner * Math.cos(a)}
-              y1={SIZE / 2 + inner * Math.sin(a)}
-              x2={SIZE / 2 + outer * Math.cos(a)}
-              y2={SIZE / 2 + outer * Math.sin(a)}
+              x1={round2(SIZE / 2 + inner * Math.cos(a))}
+              y1={round2(SIZE / 2 + inner * Math.sin(a))}
+              x2={round2(SIZE / 2 + outer * Math.cos(a))}
+              y2={round2(SIZE / 2 + outer * Math.sin(a))}
               stroke="var(--wp-line)"
               strokeWidth={i % 5 === 0 ? 2 : 1}
               strokeLinecap="round"

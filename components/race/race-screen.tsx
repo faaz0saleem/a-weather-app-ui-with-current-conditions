@@ -66,12 +66,20 @@ function statusLine(o: CustomerOrderView) {
 }
 
 /** The race screen — the hero of the app. */
-export function RaceScreen({ initial, justPlaced = false }: { initial: CustomerOrderView; justPlaced?: boolean }) {
+export function RaceScreen({
+  initial,
+  serverNow,
+  justPlaced = false,
+}: {
+  initial: CustomerOrderView;
+  serverNow: number;
+  justPlaced?: boolean;
+}) {
   const [order, setOrder] = useState(initial);
   const [celebrateChoice, setCelebrateChoice] = useState<boolean | null>(null);
   const [confirmCancel, setConfirmCancel] = useState(false);
   const [cancelling, setCancelling] = useState(false);
-  const now = useServerNow();
+  const now = useServerNow(serverNow);
   const prevStatus = useRef(order.status);
 
   useEffect(() => {

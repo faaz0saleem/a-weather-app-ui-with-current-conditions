@@ -4,6 +4,7 @@ import { BrandStyle } from "@/components/brand/brand-style";
 import { DevSwitcher } from "@/components/dev/dev-switcher";
 import { Providers } from "@/components/providers/providers";
 import { ServiceWorker } from "@/components/providers/service-worker";
+import { ThemeScript } from "@/components/providers/theme-script";
 import { brand } from "@/config/brand";
 import { DEV_TOOLS } from "@/lib/supabase/env";
 import "./globals.css";
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" suppressHydrationWarning className={`${bricolage.variable} ${jakarta.variable}`}>
       <head>
         <BrandStyle />
+        <ThemeScript />
       </head>
       <body className="min-h-dvh">
         <Providers>

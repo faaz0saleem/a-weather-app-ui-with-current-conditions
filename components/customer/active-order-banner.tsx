@@ -18,8 +18,8 @@ const STATUS: Record<ActiveOrderSummary["status"], string> = {
 };
 
 /** "Your order · 18:42 left" pill on the home screen. */
-export function ActiveOrderBanner({ order }: { order: ActiveOrderSummary }) {
-  const now = useServerNow();
+export function ActiveOrderBanner({ order, serverNow }: { order: ActiveOrderSummary; serverNow: number }) {
+  const now = useServerNow(serverNow);
   const remaining = order.promisedBy ? (new Date(order.promisedBy).getTime() - now) / 1000 : null;
   const tone = timerTone(remaining, order.guaranteeState);
   return (

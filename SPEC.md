@@ -276,3 +276,6 @@ Small calls made without asking. Change any of them by telling Claude.
 | D22 | **Accept deadline** is enforced in three places: the DB refuses `accepted` after `accept_by`; the sweep auto-cancels; the dashboard counts down. | Belt and braces. |
 | D23 | **Share card** is 1080×1350 PNG (Instagram portrait, fine on WhatsApp) at `/api/share/[orderId]`, no customer PII on it. | Shareable, safe. |
 | D24 | Delivery **radius per restaurant** can override the default 4 km (`restaurants.radius_km`, null = default). | Some kitchens will want tighter radii. |
+| D25 | **Rider over-booking guard**: when quoting, orders already waiting for a rider "reserve" one each, so the k-th waiting order is quoted against the (k+1)-th nearest free rider. | Stops 10 simultaneous orders all being promised the same single rider. |
+| D26 | **Committed prep is capped** at the order's predicted prep (items + queue) or the fast-lane limit, whichever is higher. | Otherwise a kitchen could commit 25 min, never be "late", and push every late onto delivery (rule 10 loophole). |
+| D27 | **Theme switching** uses a tiny inline `<head>` script + hook (`components/providers/theme*`) instead of next-themes. | next-themes injects a client-side `<script>` that React 19 warns about; the inline server script is the pattern Next 16 recommends and avoids any light/dark flash. |

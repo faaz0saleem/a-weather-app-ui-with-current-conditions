@@ -82,8 +82,21 @@ function subscribe(l: () => void) {
   };
 }
 
-/** Re-renders ~4×/s with the server-synced time. */
-export function useServerNow(): number {
+const noopSubscribe = () => () => {};
+
+/** Prime the clock with a server-rendered DB time until the first real sync lands. */
+function seed(nowMs: number) {
+  if (sample || !nowMs || typeof performance === "undefined") return;
+  sample = { serverAt: nowMs, perfAt: performance.now(), warp: 1, rtt: Number.POSITIVE_INFINITY };
+}
+
+/**
+ * Re-renders ~4×/s with the server-synced time. `seedNow` is the DB time the
+ * server rendered with — used for the hydration render so SSR and the first
+ * client render agree exactly.
+ */
+export function useServerNow(seedNow: number): number {
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
   useEffect(() => {
     void syncServerClock();
     const resync = () => {
@@ -100,5 +113,7 @@ export function useServerNow(): number {
   }, []);
   // The tick counter makes the snapshot change on every interval.
   useSyncExternalStore(subscribe, () => tick, () => 0);
+  if (!hydrated) return seedNow;
+  seed(seedNow);
   return serverNow();
 }

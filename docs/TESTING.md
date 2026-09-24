@@ -41,3 +41,24 @@ gives the ETA engine riders to work with — **press it first**, otherwise every
 Things that should refuse politely:
 - Drop the address pin outside DHA → "We're DHA-only for now".
 - Admin pauses a kitchen (milestone 6) / all riders offline → a specific reason + "try again in ~X min".
+
+## Milestone 3 — restaurant dashboard
+
+Best on a tablet or a laptop window ≥ 1024 px wide (it also works on a phone).
+
+1. In one browser window: **Dev → Customer "Hassan"**, riders online, order from **Chai Chowk**.
+2. In a second window (or incognito): **Dev → Restaurant "Chai Chowk Stall"** → `/restaurant`.
+3. Tap **Start shift** → a chime plays; the new order alarm now rings every ~2.5 s and the screen
+   stays awake. The **New order** card shows the 2-minute accept countdown (turns red under 30 s).
+4. Pick a prep time (chips are capped so the kitchen can't over-promise) → **Accept**. The card moves
+   to **Cooking** with a prep countdown; "Bilal Ahmed is coming" appears (nearest free rider was
+   auto-assigned). The customer's race screen moves to *Cooking* instantly (realtime).
+5. **Mark ready** → take a photo (on a laptop, pick any image) → **Upload & mark ready**. The
+   customer sees the sealed-bag photo. "Camera not working?" marks ready without one (logged).
+6. **Reject** another order with a reason → the customer sees "The kitchen couldn't take this one".
+7. **Pause → 10 min** → customers see "Kitchen's slammed — back in ~10 min" on this restaurant.
+   **Resume** clears it. The **Taking orders** switch closes the kitchen entirely.
+8. **Menu** tab: toggle an item **Sold out** (it greys out for customers), edit a price, set prep to
+   15 → it shows "hidden" (not fast-lane) and disappears from the customer menu. Upload a photo.
+9. **Today** tab: orders, on-time %, lates caused by the kitchen, kitchen charges.
+10. Admin can open any kitchen: **Dev → Admin** → `/restaurant`.
