@@ -142,3 +142,12 @@ Follow **[DEPLOY-HOSTINGER.md](DEPLOY-HOSTINGER.md)**. After deploying:
 2. Place an order from your phone, accept it on a tablet, deliver it from another phone as a rider.
 3. Leave an order unaccepted for 2 minutes with every browser closed — it still auto-cancels (the
    server's own timer, plus the Supabase backup ping if you set it up).
+
+## Launch extras
+
+1. **Health check:** open `/api/health` → `{"ok":true,…}`. Stop Supabase (or use a wrong key) → it returns 503.
+2. **Login protection:** on the sign-in screen, enter a wrong password 9 times for the same phone → you see
+   "Too many attempts. Please try again in … s." Wait 10 minutes (or restart the server) to reset.
+3. **Orders CSV:** sign in as admin → **Analytics** → pick 7 days → **Download orders (CSV)**. Open it in
+   Excel or Google Sheets: one row per order, times in Pakistan time, totals in rupees.
+4. **WhatsApp support:** **Profile** → **Chat with us on WhatsApp** opens a chat with `supportPhone`.

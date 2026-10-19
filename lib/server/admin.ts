@@ -155,17 +155,24 @@ export type AnalyticsReport = {
   by_hour: { hour: number; orders: number; late: number; avg_min: number | null }[];
 };
 
-export async function getAnalytics(range: "today" | "7d" | "30d", includeSim: boolean): Promise<AnalyticsReport> {
-  const sb = getServiceSupabase();
+export type ReportRange = "today" | "7d" | "30d";
+
+/** [from, to) on app time for an admin report range ("today" starts at Karachi midnight). */
+export async function rangeBounds(range: ReportRange): Promise<{ from: Date; to: Date }> {
   const { now } = await getClock();
   let from: Date;
   if (range === "today") {
-    const { data } = await sb.rpc("karachi_day_start");
+    const { data } = await getServiceSupabase().rpc("karachi_day_start");
     from = new Date(data as string);
   } else {
     from = new Date(now.getTime() - (range === "7d" ? 7 : 30) * 86_400_000);
   }
-  const to = new Date(now.getTime() + 60_000);
+  return { from, to: new Date(now.getTime() + 60_000) };
+}
+
+export async function getAnalytics(range: ReportRange, includeSim: boolean): Promise<AnalyticsReport> {
+  const sb = getServiceSupabase();
+  const { from, to } = await rangeBounds(range);
   const { data } = await sb.rpc("analytics_report", { p_from: from.toISOString(), p_to: to.toISOString(), p_include_sim: includeSim });
   return data as unknown as AnalyticsReport;
 }

@@ -53,6 +53,8 @@ address Hostinger shows you. You should see the WaqtPe home screen.
 
 Quick checks:
 - `https://YOUR-ADDRESS/api/time` shows `{"now":…,"warp":1}` → the server can reach Supabase.
+- `https://YOUR-ADDRESS/api/health` shows `{"ok":true,…}`. Point a free uptime monitor (e.g. UptimeRobot) at this
+  address so you get an email if the app or the database goes down.
 - Sign in with the **Dev** button (if dev tools are on) and place a test order.
 
 ### 4. Your own domain + HTTPS
@@ -100,7 +102,9 @@ Every `git push` to the `app` branch redeploys automatically. Database changes (
    **Admin → Restaurants**. Create real kitchen logins, and rider logins in **Admin → Riders**.
 4. Test accounts (phones `+92300000…`) still sign in with `SEED_PASSWORD`. Deactivate test riders in
    Admin → Riders, or delete test users in Supabase → Authentication → Users.
-5. Check **Admin → Settings** (window 30, cap Rs 3,000, geofence 75 m, fee Rs 150 …) and that
+5. Set your real support number in `config/brand.ts` → `supportPhone` (it drives the Call and WhatsApp
+   buttons), commit and push.
+6. Check **Admin → Settings** (window 30, cap Rs 3,000, geofence 75 m, fee Rs 150 …) and that
    **Rain Mode is OFF**. Check **Admin → Zone** matches the area you actually serve.
 
 ### Troubleshooting

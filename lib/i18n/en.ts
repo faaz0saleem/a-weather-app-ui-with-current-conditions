@@ -236,6 +236,7 @@ export const en = {
     system: "Auto",
     phone: "Phone",
     help: "Help & support",
+    whatsapp: "Chat with us on WhatsApp",
     version: "Version",
     defaultBadge: "Default",
     makeDefault: "Make default",
@@ -268,6 +269,7 @@ export const en = {
     unauthorized: "Please sign in first.",
     forbidden: "You don't have access to this.",
     WP: {
+      rate_limited: "Too many tries. Please wait a minute and try again.",
       item_out_of_stock: "Something in your cart just sold out.",
       item_unavailable: "Something in your cart is no longer on the menu.",
       item_not_fast_lane: "Something in your cart can't make the 30-minute lane.",

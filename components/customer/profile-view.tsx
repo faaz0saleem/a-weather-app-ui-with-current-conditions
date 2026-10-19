@@ -3,13 +3,13 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSyncExternalStore } from "react";
-import { ChevronRight, LifeBuoy, LogOut, MapPin, Monitor, Moon, Plus, Star, Sun, Trash2 } from "lucide-react";
+import { ChevronRight, LifeBuoy, LogOut, MapPin, MessageCircle, Monitor, Moon, Plus, Star, Sun, Trash2 } from "lucide-react";
 import { useTheme } from "@/components/providers/theme";
 import { toast } from "sonner";
 import { InstallButton } from "@/components/providers/install-button";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { brand } from "@/config/brand";
+import { brand, supportTelUrl, supportWhatsAppUrl } from "@/config/brand";
 import { formatAddress } from "@/lib/address";
 import { formatPkPhone } from "@/lib/auth/phone";
 import { api } from "@/lib/client/api";
@@ -132,9 +132,13 @@ export function ProfileView({
       </section>
 
       <section className="mb-8 divide-y divide-line rounded-2xl bg-card shadow-soft">
-        <a href={`tel:${brand.supportPhone.replace(/\s/g, "")}`} className="flex items-center gap-3 p-4 font-semibold">
+        <a href={supportTelUrl} className="flex items-center gap-3 p-4 font-semibold">
           <LifeBuoy className="size-5 text-brand" /> <span className="flex-1">{t.profile.help}</span>
           <span className="text-sm text-ink-soft">{brand.supportPhone}</span>
+          <ChevronRight className="size-4 text-ink-soft" />
+        </a>
+        <a href={supportWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 font-semibold">
+          <MessageCircle className="size-5 text-mint-deep" /> <span className="flex-1">{t.profile.whatsapp}</span>
           <ChevronRight className="size-4 text-ink-soft" />
         </a>
         <button onClick={signOut} className="flex w-full items-center gap-3 p-4 text-left font-semibold text-chili-deep">

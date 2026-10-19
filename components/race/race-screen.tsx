@@ -10,7 +10,7 @@ import { PageHeader } from "@/components/customer/page-header";
 import { WaqtMap, type MapMarker } from "@/components/map";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
-import { brand } from "@/config/brand";
+import { supportTelUrl } from "@/config/brand";
 import { api } from "@/lib/client/api";
 import { useRiderPosition, useTableChanges } from "@/lib/client/realtime";
 import { syncServerClock, useServerNow } from "@/lib/client/server-clock";
@@ -227,7 +227,7 @@ export function RaceScreen({
         title={t.race.title(order.code)}
         back="/"
         right={
-          <a href={`tel:${brand.supportPhone.replace(/\s/g, "")}`} className="rounded-full px-3 py-2 text-sm font-bold text-brand-deep">
+          <a href={supportTelUrl} className="rounded-full px-3 py-2 text-sm font-bold text-brand-deep">
             {t.race.helpShort}
           </a>
         }

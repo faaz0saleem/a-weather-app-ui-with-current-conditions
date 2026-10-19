@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Table2 } from "lucide-react";
+import { Download, Table2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Switch } from "@/components/ui/switch";
 import { api } from "@/lib/client/api";
@@ -73,6 +73,13 @@ export function AnalyticsView({ initial }: { initial: AnalyticsReport }) {
         <label className="flex items-center gap-2 text-sm font-semibold text-ink-soft">
           <Switch checked={sim} onCheckedChange={setSim} /> Include test orders
         </label>
+        <a
+          href={`/api/admin/orders/export?range=${range}&sim=${sim ? 1 : 0}`}
+          download
+          className="ml-auto inline-flex h-11 items-center gap-2 rounded-2xl bg-card px-4 text-sm font-semibold shadow-soft hover:bg-muted"
+        >
+          <Download className="size-4" aria-hidden /> Download orders (CSV)
+        </a>
       </div>
 
       {!r || loading ? (

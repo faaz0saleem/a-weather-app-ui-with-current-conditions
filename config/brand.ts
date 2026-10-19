@@ -76,3 +76,7 @@ export const brand = {
 } as const;
 
 export type BrandColors = (typeof brand.colors)["light"];
+
+/** Support links derived from brand.supportPhone. */
+export const supportTelUrl = `tel:${brand.supportPhone.replace(/\s/g, "")}`;
+export const supportWhatsAppUrl = `https://wa.me/${brand.supportPhone.replace(/\D/g, "")}`;
