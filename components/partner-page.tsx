@@ -1,6 +1,8 @@
 import type { LucideIcon } from "lucide-react";
 import { MessageCircle, Phone } from "lucide-react";
 import { TruckArtPattern } from "@/components/brand";
+import { Breadcrumbs, JsonLd, breadcrumbLd } from "@/components/seo";
+import { ClosingCta } from "@/components/site-chrome";
 import { brand } from "@/config/brand";
 import { site } from "@/config/site";
 
@@ -11,8 +13,10 @@ export function PartnerPage({
   points,
   steps,
   whatsappText,
+  trail,
   dark = false,
 }: {
+  trail: { name: string; path: string }[];
   eyebrow: string;
   title: string;
   intro: string;
@@ -23,10 +27,12 @@ export function PartnerPage({
 }) {
   return (
     <>
+      <JsonLd data={breadcrumbLd(trail)} />
       <section className={`relative overflow-hidden ${dark ? "bg-ink text-cream" : "bg-brand text-brand-ink"}`}>
         {dark && <TruckArtPattern opacity={0.07} />}
-        <div className="relative mx-auto max-w-6xl px-5 py-20">
-          <p className="text-sm font-bold tracking-wider uppercase opacity-80">{eyebrow}</p>
+        <div className="relative mx-auto max-w-6xl px-5 pt-8 pb-20">
+          <Breadcrumbs trail={trail} />
+          <p className="mt-10 text-sm font-bold tracking-wider uppercase opacity-80">{eyebrow}</p>
           <h1 className="mt-3 max-w-3xl font-display text-[clamp(2.4rem,6vw,4.4rem)] leading-[0.98] font-extrabold">{title}</h1>
           <p className="mt-5 max-w-2xl text-lg opacity-85">{intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -66,6 +72,7 @@ export function PartnerPage({
           </ol>
         </div>
       </section>
+      <ClosingCta title="Questions first?" body="Message us on WhatsApp. A person replies, usually the same day." />
     </>
   );
 }

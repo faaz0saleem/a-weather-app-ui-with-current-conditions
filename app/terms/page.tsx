@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Legal } from "@/components/legal";
 import { brand } from "@/config/brand";
-import { site } from "@/config/site";
+import { rs, site } from "@/config/site";
 
-export const metadata: Metadata = { title: "Terms" };
+export const metadata: Metadata = { title: "Terms of the 30-minute guarantee", description: "The exact terms of WaqtPe's 30-minute delivery guarantee: when the clock starts and stops, what is free and when it pauses.", alternates: { canonical: "/terms/" } };
 
-const rs = (n: number) => `Rs ${n.toLocaleString("en-US")}`;
 
 export default function TermsPage() {
   return (
@@ -27,7 +26,7 @@ export default function TermsPage() {
         <li>We only accept orders we expect to deliver in time. If we can&apos;t, the app tells you why and when to try again.</li>
         <li>Restaurants have 2 minutes to accept; otherwise the order is cancelled automatically and you are not charged.</li>
         <li>You can cancel until the restaurant accepts.</li>
-        <li>Payment is cash on delivery during the pilot.</li>
+        <li>Payment is cash on delivery.</li>
       </ul>
       <h2>Contact</h2>
       <p>

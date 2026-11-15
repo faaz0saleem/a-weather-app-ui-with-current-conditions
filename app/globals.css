@@ -20,6 +20,7 @@
   --color-chili: var(--wp-chili);
   --color-gold: var(--wp-gold);
   --color-gold-soft: var(--wp-goldSoft);
+  --color-gold-deep: var(--wp-goldDeep);
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-bricolage), var(--font-jakarta), ui-sans-serif, sans-serif;
   --shadow-soft: 0 1px 2px rgb(26 22 18 / 0.04), 0 10px 30px -14px rgb(26 22 18 / 0.2);

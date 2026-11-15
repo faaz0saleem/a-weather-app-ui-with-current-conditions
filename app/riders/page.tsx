@@ -2,12 +2,20 @@ import type { Metadata } from "next";
 import { HandCoins, HeartHandshake, MapPinned, ShieldCheck, Smartphone, Wallet } from "lucide-react";
 import { PartnerPage } from "@/components/partner-page";
 
-export const metadata: Metadata = { title: "Ride with us", description: "Ride with WaqtPe in DHA Lahore: fixed pay per job, no countdown, safety first." };
+const description = "Delivery rider jobs in DHA Lahore Phase 6, 7 and 8: fixed pay per job, short trips, no countdown on your screen and no pay cuts for late orders.";
+
+export const metadata: Metadata = {
+  title: "Delivery rider jobs in DHA Lahore",
+  description,
+  alternates: { canonical: "/riders/" },
+  openGraph: { url: "/riders/", title: "Ride with WaqtPe in DHA Lahore", description },
+};
 
 export default function RidersPage() {
   return (
     <PartnerPage
       dark
+      trail={[{ name: "Ride with us", path: "/riders/" }]}
       eyebrow="Riders"
       title="Ride with WaqtPe. No countdown on your screen — ever."
       intro="Our promise to customers is our problem, not yours. You never see their timer, your pay is never cut when an order is late, and nobody will tell you to hurry."

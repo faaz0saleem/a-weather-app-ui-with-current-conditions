@@ -2,11 +2,19 @@ import type { Metadata } from "next";
 import { BarChart3, BellRing, Camera, Clock, PauseCircle, Scale } from "lucide-react";
 import { PartnerPage } from "@/components/partner-page";
 
-export const metadata: Metadata = { title: "For restaurants", description: "Partner with WaqtPe: more orders, less chaos, and a fair split clock." };
+const description = "Restaurants in DHA Lahore Phase 6, 7 and 8: get delivery orders your kitchen can make fast, a tablet dashboard, and a split clock that only charges you when your own prep ran over.";
+
+export const metadata: Metadata = {
+  title: "Partner your restaurant in DHA Lahore",
+  description,
+  alternates: { canonical: "/restaurants/" },
+  openGraph: { url: "/restaurants/", title: "Partner your DHA restaurant with WaqtPe", description },
+};
 
 export default function RestaurantsPage() {
   return (
     <PartnerPage
+      trail={[{ name: "For restaurants", path: "/restaurants/" }]}
       eyebrow="For DHA kitchens"
       title="More orders. Less chaos. A clock that's fair to you."
       intro="WaqtPe customers order because the 30-minute promise is real. We only send you orders your kitchen can make fast — and we only charge you when your own prep ran over."
@@ -19,7 +27,7 @@ export default function RestaurantsPage() {
         { icon: PauseCircle, title: "Busy? Pause in one tap", body: "“Back in 20 minutes” — customers are told honestly, and no order you can't handle comes in." },
         { icon: BarChart3, title: "Your day at a glance", body: "Orders, on-time %, average prep and any kitchen-caused lates, updated live." },
       ]}
-      steps={["Send us your menu on WhatsApp — we'll mark which dishes cook in 12 minutes or less.", "We set up your tablet login and a 20-minute training.", "Start your first shift. We're on WhatsApp for anything."]}
+      steps={["Send us your menu on WhatsApp — we'll time your fastest dishes at the counter and list the ones ready in 10 minutes or less.", "We set up your tablet login and a 20-minute training.", "Start your first shift. We're on WhatsApp for anything."]}
     />
   );
 }

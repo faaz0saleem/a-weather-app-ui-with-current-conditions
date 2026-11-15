@@ -1,3 +1,5 @@
+import { Phone } from "lucide-react";
+
 /**
  * A CSS-only mock of the race screen for the hero. The ring animates slowly
  * (respecting reduced motion) — no JavaScript needed on a static site.
@@ -49,13 +51,13 @@ export function PhoneMock() {
               <p className="text-[10px] font-bold text-ink-soft uppercase">Your rider</p>
               <p className="text-xs font-bold">Bilal · Honda CD-70</p>
             </div>
-            <span className="ml-auto grid size-8 place-items-center rounded-full bg-brand-soft text-xs">📞</span>
+            <span className="ml-auto grid size-8 place-items-center rounded-full bg-brand-soft"><Phone className="size-4" /></span>
           </div>
           <div className="h-3" />
         </div>
       </div>
       <div className="absolute -top-4 -right-6 rotate-6 rounded-2xl bg-gold px-3 py-2 text-xs font-extrabold text-brand-ink shadow-lift">
-        Late? It&apos;s free 🎉
+        Late? It&apos;s free
       </div>
     </div>
   );

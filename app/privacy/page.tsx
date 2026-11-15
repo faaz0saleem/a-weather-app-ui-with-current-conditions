@@ -3,7 +3,7 @@ import { Legal } from "@/components/legal";
 import { brand } from "@/config/brand";
 import { site } from "@/config/site";
 
-export const metadata: Metadata = { title: "Privacy" };
+export const metadata: Metadata = { title: "Privacy", description: "What WaqtPe collects, who sees it and how long we keep it, in plain words.", alternates: { canonical: "/privacy/" } };
 
 export default function PrivacyPage() {
   return (

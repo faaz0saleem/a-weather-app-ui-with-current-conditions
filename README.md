@@ -4,8 +4,11 @@ The public site for **WaqtPe — "30 minutes, or it's on us."** The ordering app
 **`app`** branch. Name, tagline and colours: `config/brand.ts` (same file as the app — keep them in
 sync). Site links (app URL, WhatsApp, email): `config/site.ts`.
 
-Pages: `/` (landing + FAQ), `/restaurants/`, `/riders/`, `/privacy/`, `/terms/` (drafts — get them
-reviewed by a lawyer before launch).
+Pages: `/` (landing), `/guarantee/`, `/food-delivery/` and one page per phase, `/faq/`,
+`/restaurants/`, `/riders/`, `/privacy/`, `/terms/` (drafts: get them reviewed by a lawyer before launch).
+
+**Search and launch checklist: see `SEO.md`.** Build settings: `NEXT_PUBLIC_LAUNCHED=true` once orders
+are open, `NEXT_PUBLIC_GOOGLE_VERIFICATION` for Search Console.
 
 ## Run it
 
@@ -44,6 +47,8 @@ To update: rebuild and upload again (overwrite).
 | Change | File |
 |---|---|
 | Name, tagline, colours | `config/brand.ts` |
-| "Order now" link, WhatsApp, email, kitchen count, clusters | `config/site.ts` |
-| Landing page copy + FAQ | `app/page.tsx` |
+| "Order now" link, WhatsApp, email, kitchen count, phases, foods | `config/site.ts` |
+| Questions and answers | `config/faq.ts` |
+| Delivery-area pages | `config/areas.ts` |
+| Landing page copy | `app/page.tsx` |
 | Restaurant / rider pages | `app/restaurants/page.tsx`, `app/riders/page.tsx` |
